@@ -17,7 +17,7 @@ import java.util.Collection;
 public class StudentCustomRepository {
 
     @PersistenceContext
-    EntityManager em;
+    private EntityManager em;
 
     public Collection<Student> getStudentsByName(String name, String surname) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
