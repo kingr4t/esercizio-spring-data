@@ -12,7 +12,9 @@ import java.util.Collection;
 public interface StudentRepository extends CrudRepository<Student, Long> {
 
     long countBySurname(String surname);
+
     Collection<Student> findAllStudentByName(String name);
+
     Student findStudentBySurname(String surname);
 
     @Query("SELECT s FROM Student s WHERE s.name = :name")
@@ -23,8 +25,6 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 
     @Query(value = "SELECT * FROM student as s WHERE s.cf = ?1", nativeQuery = true)
     Collection<Student> finderCF2(String cf);
-
-
 
 
 }
