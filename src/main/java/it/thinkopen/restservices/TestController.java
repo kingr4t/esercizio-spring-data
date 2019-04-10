@@ -12,11 +12,14 @@ import java.util.Collection;
 @RestController
 public class TestController {
 
-    @Autowired
-    StudentCustomRepository studentCustomRepository;
+    private final StudentCustomRepository studentCustomRepository;
+    private final StudentRepository studentRepository;
 
     @Autowired
-    StudentRepository studentRepository;
+    public TestController(StudentCustomRepository studentCustomRepository, StudentRepository studentRepository) {
+        this.studentCustomRepository = studentCustomRepository;
+        this.studentRepository = studentRepository;
+    }
 
     @RequestMapping("/test")
     Collection<Student> getStudents() {
